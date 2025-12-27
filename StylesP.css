@@ -1,48 +1,81 @@
-// Data: Replace with your 15 categories and words
-const categories = {
-    "Food & Drink": {
-        easy: ["Apple", "Bread", "Milk", "Egg"],
-        normal: ["Olive oil", "Spicy curry", "Grilled chicken"],
-        hard: ["Sous-vide steak", "Artisanal cheese", "Gluten-free pasta"]
-    },
-    "Technology & Gadgets": {
-        easy: ["Phone", "Computer", "Laptop"],
-        normal: ["Smartphone app", "Wireless charger"],
-        hard: ["Neural network", "MagSafe cable"]
-    }
-    // Add all 15 categories here...
-};
-
-// Show categories on load
-window.onload = function() {
-    const categoriesDiv = document.getElementById("categories");
-    for (const category in categories) {
-        const button = document.createElement("button");
-        button.textContent = category;
-        button.onclick = () => selectCategory(category);
-        categoriesDiv.appendChild(button);
-    }
-};
-
-// Show difficulty buttons for selected category
-function selectCategory(category) {
-    document.getElementById("categories").classList.add("hidden");
-    document.getElementById("difficulty").classList.remove("hidden");
-    document.getElementById("category-title").textContent = category;
-    currentCategory = category;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
 }
 
-// Show random word from selected difficulty
-function selectDifficulty(difficulty) {
-    const words = categories[currentCategory][difficulty];
-    const randomWord = words[Math.floor(Math.random() * words.length)];
-    document.getElementById("word").textContent = randomWord;
-    document.getElementById("difficulty").classList.add("hidden");
-    document.getElementById("word-display").classList.remove("hidden");
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-// Return to category selection
-function backToCategories() {
-    document.getElementById("word-display").classList.add("hidden");
-    document.getElementById("categories").classList.remove("hidden");
+h1 {
+    color: #2c3e50;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.hidden {
+    display: none;
+}
+
+.difficulty-buttons {
+    margin: 20px 0;
+}
+
+.difficulty-buttons button {
+    margin: 0 10px;
+}
+
+#word {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #e74c3c;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button:first-child {
+    background-color: #2ecc71;
+}
+
+.buttons button:first-child:hover {
+    background-color: #27ae60;
+}
+
+.buttons button:last-child {
+    background-color: #95a5a6;
+}
+
+.buttons button:last-child:hover {
+    background-color: #7f8c8d;
 }
