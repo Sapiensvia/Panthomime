@@ -7,19 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Collocation Trainer</h1>
-    <div id="categories" class="grid">
-        <!-- Categories will be added here by JavaScript -->
-    </div>
-    <div id="difficulty" class="hidden">
-        <h2 id="category-title"></h2>
-        <button onclick="selectDifficulty('easy')">Easy</button>
-        <button onclick="selectDifficulty('normal')">Normal</button>
-        <button onclick="selectDifficulty('hard')">Hard</button>
-    </div>
-    <div id="word-display" class="hidden">
-        <h2 id="word"></h2>
-        <button onclick="backToCategories()">Back to Categories</button>
+    <div class="container">
+        <h1>Collocation Trainer</h1>
+        <div id="categories" class="grid"></div>
+        <div id="difficulty-selector" class="hidden">
+            <h2 id="category-title"></h2>
+            <div class="difficulty-buttons">
+                <button onclick="selectDifficulty('easy')">Easy</button>
+                <button onclick="selectDifficulty('normal')">Normal</button>
+                <button onclick="selectDifficulty('hard')">Hard</button>
+            </div>
+        </div>
+        <div id="word-display" class="hidden">
+            <h2 id="word"></h2>
+            <div class="buttons">
+                <button onclick="showNewWord()">Next Word</button>
+                <button onclick="backToCategories()">Back to Categories</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
